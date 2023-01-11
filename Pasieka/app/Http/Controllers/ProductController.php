@@ -89,16 +89,21 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $product
-     * @return \Illuminate\Http\Response
+     * @param  Product  $product
+     * @return JsonResponse
      */
-    public function destroy($product)
+    public function destroy(Product $product): JsonResponse
     {
-        $flight = Product::find($product);
-        $flight -> delete();
-        
-        return response()->json([
-            'status'=>'success'
-        ]);
+        try {
+            $product->delete();
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Wystąpił błąd!'
+            ])->setStatusCode(500);
+        }
     }
 }
