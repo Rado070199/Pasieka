@@ -32,6 +32,7 @@
             @endforeach
         </tbody>
     </table>
+    {{ $products->links() }}
 </x-app-layout>
 <script>
     var url = "{{'products'}}/";

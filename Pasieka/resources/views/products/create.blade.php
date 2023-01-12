@@ -2,7 +2,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form action="{{route('products.store')}}" method="post">
+                <form action="{{route('products.store')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nazwa produktu</label>
@@ -19,6 +19,10 @@
                     <div class="form-group">
                         <label for="price">Cena</label>
                         <input type="number" step="0.01" min="0" name="price" id="price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Zdjęcie</label>
+                        <input type="file" name="image" id="image" class="form-control">
                     </div>
                     <div class="form-group d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary">Dodaj produkt</button>

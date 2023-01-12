@@ -18,6 +18,9 @@
                     <label for="price">Cena</label>
                     <input type="number" step="0.01" min="0" name="price" id="price" value="{{$product->price}}"  class="form-control" readonly>
                 </div>
+                <div class="form-group">
+                        <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu">
+                    </div>
                 <a href="{{route('products.index')}}" class="btn btn-secondary">Powrót</a>
             </div>
         </div>
