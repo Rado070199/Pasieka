@@ -25,7 +25,9 @@
                         <input type="file" name="image" id="image" value="{{$product->image_path}}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu">
+                        @if(!is_null($product->image_path))
+                            <img src="{{ asset('storage/' . $product->image_path) }}" alt="Zdjęcie produktu">
+                            @endif
                     </div>
                     <div class="form-group d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary">Zapisz</button>
