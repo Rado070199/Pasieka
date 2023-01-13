@@ -1,7 +1,7 @@
 $(function() {
     $('.delete').click(function() { 
        swal({
-       title: "Czy napewno chcesz usunąć?",
+       title: confirmDelete,
        icon: "warning",
        buttons: true,
        dangerMode: true,
@@ -11,7 +11,7 @@ $(function() {
       
        $.ajax({
        method: "DELETE",
-       url: "http://127.0.0.1:8000/products/" + $(this).data("id")
+       url: url + $(this).data("id")
        })
            .done(function(response) {
                window.location.reload();

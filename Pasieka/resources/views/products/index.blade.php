@@ -36,5 +36,6 @@
 </x-app-layout>
 <script>
     var url = "{{'products'}}/";
+    var confirmDalate = {{__('pasieka.messages.delate.confirm')}};
 </script>
 <script src="{{ asset('js/delete.js') }}"></script>
