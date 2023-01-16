@@ -43,6 +43,20 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="category">{{__('pasieka.product.fields.category')}}</label>
+                            <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                                <option value="">Brak</option>
+                                @foreach($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id')
+                            <span class="invalid-fedback" role="aler">
+                                <strong>{{$message}}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="image">{{__('pasieka.product.fields.image')}}</label>
                             <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" >
                             @error('image')

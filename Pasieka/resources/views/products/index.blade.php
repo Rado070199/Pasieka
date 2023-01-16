@@ -3,11 +3,12 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Nazwa </th>
-                <th> Opis </th>
-                <th> Ilość </th>
-                <th> Cena </th>
-                <th> Akcja </th>
+                <th scope="col">{{__('pasieka.product.fields.name')}}</th>
+                <th scope="col">{{__('pasieka.product.fields.description')}}</th>
+                <th scope="col">{{__('pasieka.product.fields.amount')}}</th>
+                <th scope="col">{{__('pasieka.product.fields.price')}}</th>
+                <th scope="col">{{__('pasieka.product.fields.category')}}</th>
+                <th scope="col">{{__('pasieka.columns.actions')}}</th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,7 @@
                     <td> {{ $product->description }} </td>
                     <td> {{ $product->amount }} </td>
                     <td> {{ $product->price }} </td>
+                    <td>@if($product->hasCategory()){{ $product->category->name }}@endif</td>
                     <td>
                         <a href="{{route('products.edit', $product->id)}}">
                             <button class="btn btn-warning btn-sm">Edycja</button>
