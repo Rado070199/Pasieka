@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\View\View;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,7 +20,8 @@ class WelcomController extends Controller
     public function index(): View
     {
         return view("welcome", [
-            'products' => Product::paginate(10)
+            'products' => Product::paginate(10),
+            'categories' => ProductCategory::orderBy('name', 'ASC')->get()
         ]);
     }
 }
