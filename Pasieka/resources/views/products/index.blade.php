@@ -1,5 +1,6 @@
 <x-app-layout>
-    <a href="{{route('products.create')}}" class="btn btn-success">Dodaj produkt</a>
+    @include('helpers.flesh-messages')
+    <a href="{{route('products.create')}}" class="btn btn-success">{{__('pasieka.button.add')}}</a>
     <table class="table">
         <thead>
             <tr>

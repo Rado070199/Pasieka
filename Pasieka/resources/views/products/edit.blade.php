@@ -5,6 +5,7 @@
                 <div class="card">
                     <div class="card-header">{{__('pasieka.product.edit_title', ['name' => $product->name])}}</div>
                     <form action="{{route('products.update', $product->id)}}" enctype="multipart/form-data" method="post">
+                        {{ method_field('PUT') }}
                         @csrf
                         <div class="form-group">
                             <label for="name">{{__('pasieka.product.fields.name')}}</label>
