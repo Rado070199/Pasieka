@@ -1,6 +1,13 @@
 <x-app-layout>
     @include('helpers.flesh-messages')
-    <a href="{{route('products.create')}}" class="btn btn-success">{{__('pasieka.button.add')}}</a>
+    <div class="row">
+        <div class="col-6">
+            <h1><i class="fa-solid fa-list"></i> {{__('pasieka.product.index_title')}}</h1>
+        </div>
+        <div class="col-6">
+            <a href="{{route('products.create')}}" class="btn btn-success">{{__('pasieka.button.add')}} <i class="fa-solid fa-plus"></i> </a>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -22,13 +29,13 @@
                     <td>@if($product->hasCategory()){{ $product->category->name }}@endif</td>
                     <td>
                         <a href="{{route('products.edit', $product->id)}}">
-                            <button class="btn btn-warning btn-sm">Edycja</button>
+                            <button class="btn btn-warning btn-sm"><i class="fa-solid fa-pen"></i></button>
                         </a>
                         <a href="{{route('products.show', $product->id)}}">
-                            <button class="btn btn-info btn-sm">Podgląd</button>
+                            <button class="btn btn-info btn-sm"><i class="fa-regular fa-eye"></i></button>
                         </a>
                         <button class="btn btn-danger btn-sm delete" data-id="{{ $product->id }}">
-                            X
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                     </td>
                 </tr>
