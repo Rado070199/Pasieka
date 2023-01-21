@@ -34,9 +34,11 @@
                     </x-slot>
 
                     <x-slot name="content">
-                    <x-dropdown-link :href="route('products.index')">
+                    @can('isAdmin')
+                        <x-dropdown-link :href="route('products.index')">
                             {{ __('Produkty') }}
                         </x-dropdown-link>
+                    @endcan
 
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
