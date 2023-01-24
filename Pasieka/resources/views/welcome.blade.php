@@ -106,6 +106,9 @@
                               <i>{{$product->price}} zł</i>
                             </h5>
                           </div>
+                          <button class="btn btn-success btn-sm add-cart-button" data-id="{{ $product->id }}" @guest disabled @endguest>
+                              <i class="fas fa-cart-plus"></i>{{__('pasieka.shopping.add_to_cart')}}
+                            </button>
                         </div>
                       </div>
                      @endforeach
@@ -164,7 +167,10 @@ $(document).ready(function(){
 });
 </script>
 <script>
-    const storagePath = '{{ asset('storage')}}/';
-    const defaultImage = '{{$defaultImage}}';
+  const WELCOME_DATA = {
+    storagePath: '{{ asset('storage')}}/',
+    defaultImage: '{{$defaultImage}}',
+    addToCart: '{{ url('cart')}}/'
+  }
 </script>
 <script src="{{ asset('js/welcome.js') }}"></script>

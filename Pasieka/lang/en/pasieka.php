@@ -17,6 +17,9 @@ return [
         'save' => 'Save',
         'add' => 'Add',
     ],
+    'shopping' => [
+        'add_to_cart' => 'Add to cart',
+    ],
     'user' => [
         'index_title' => 'List users',
         'status' => [

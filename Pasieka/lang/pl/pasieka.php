@@ -19,6 +19,9 @@ return [
         'cancel' => 'Anuluj',
         'return' => 'Powrót',
     ],
+    'shopping' => [
+        'add_to_cart' => 'Dodaj do koszyka',
+    ],
     'user' => [
         'index_title' => 'Lista użytkowników',
         'status' => [

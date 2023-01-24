@@ -10,6 +10,32 @@ $(function() {
         getProducts($('a.products-actual-count').first().text());
     });
 
+    $('button.add-cart-button').click(function(event) {
+        event.preventDefault();
+            swal({
+            title: "Czy napewno chcesz dodać produkt do koszyka?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((isConfirmed) => {
+            if (isConfirmed) {
+           
+            $.ajax({
+            method: "POST",
+            url: WELCOME_DATA.addToCart + $(this).data("id")
+            })
+                .done(function() {
+                     swal('ok')
+                })
+                .fail(function() {
+                     swal('Coś poszło nie tak ');
+                });
+            }
+         });
+    });
+
+
     function getProducts(paginate) {
         const form = $('form.sidebar-filter').serialize();
         $.ajax({
@@ -43,8 +69,8 @@ $(function() {
 
     function getImage(product) {
         if (!!product.image_path) {
-            return storagePath + product.image_path;
+            return WELCOME_DATA.storagePath + product.image_path;
         }
-        return defaultImage;
+        return WELCOME_DATA.defaultImage;
     }
 });
